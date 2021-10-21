@@ -1,6 +1,6 @@
 
 def calculateStats(numbers):
-  computeStats = []
+  computeStats = {}
   if(len(numbers)!=0):
     computeStats["min"] = min(numbers)
     computeStats["max"] = max(numbers)
