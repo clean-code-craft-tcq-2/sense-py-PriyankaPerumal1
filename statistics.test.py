@@ -1,24 +1,7 @@
 import unittest
 import statistics
 import math
-
-class EmailAlert:
-  emailSent = False
- 
-class LEDAlert:
-  ledGlows = False
-
-class StatsAlerter:
-  def __init__(self,maxThreshold, alerts):
-    self.maxThreshold = maxThreshold
-    self.emailAlert = alerts[0]
-    self.ledAlert = alerts[1]
-    
-  def checkAndAlert(self,numbers):
-    computedStats = statistics.calculateStats(numbers)
-    if(computedStats["max"] > self.maxThreshold):
-      self.emailAlert.emailSent = True
-      self.ledAlert.ledGlows = True
+import statistics import *
   
 class StatsTest(unittest.TestCase):
   def test_report_min_max_avg(self):
@@ -33,9 +16,9 @@ class StatsTest(unittest.TestCase):
     # All fields of computedStats (average, max, min) must be
     # nan (not-a-number), as defined in the math package
     # Design the assert here.
-    self.assertFalse(math.isnan(computedStats["avg"]))
-    self.assertFalse(math.isnan(computedStats["max"]))
-    self.assertFalse(math.isnan(computedStats["min"]))
+    self.assertTrue(math.isnan(computedStats["avg"]))
+    self.assertTrue(math.isnan(computedStats["max"]))
+    self.assertTrue(math.isnan(computedStats["min"]))
     # Use nan and isnan in https://docs.python.org/3/library/math.html
 
   def test_raise_alerts_when_max_above_threshold(self):
