@@ -1,3 +1,5 @@
+import math
+
 class EmailAlert:
   emailSent = False
  
@@ -11,7 +13,7 @@ class StatsAlerter:
     self.ledAlert = alerts[1]
     
   def checkAndAlert(self,numbers):
-    computedStats = statistics.calculateStats(numbers)
+    computedStats = calculateStats(numbers)
     if(computedStats["max"] > self.maxThreshold):
       self.emailAlert.emailSent = True
       self.ledAlert.ledGlows = True
